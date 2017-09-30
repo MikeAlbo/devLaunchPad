@@ -57,19 +57,21 @@ func getUserInput() string {
 	return scanner.Text()
 }
 
-
+// checks to make sure the input from user is of proper type and length
 func isValidInput(userInput string) bool {
 	validInt := regexp.MustCompile(`^[0-9]{1,2}$`)
 	return validInt.MatchString(userInput)
 }
 
+// provides the intro text for game, may in the future take an input tot declare number range
 func setupGame() string  {
 	return fmt.Sprintln("\n\nGuess that number!!\nTry and find the random number between 1 and 100.\n\n ---------------------------------------")
 	// could get user input to setup an custom range of numbers
 }
 
-func exitCheck(i string)  {
-	if i == "exit" {
+// checks for exit input from user
+func exitCheck(input string)  {
+	if input == "exit" {
 		fmt.Println("Bye!")
 		os.Exit(0)
 	}
@@ -105,4 +107,3 @@ func gamePlay(randomNumber, attempts int) {
 	}
 
 }
-
